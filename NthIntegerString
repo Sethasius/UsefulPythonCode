@@ -1,0 +1,14 @@
+# Takes an integer input that then gets converted into a string with each positive integer before that input.
+if __name__ == '__main__':
+    # An integer variable that holds the input.
+    n = int(input())
+    # An empty string object that becomes the string of integers.
+    stringOfIntegers = ""
+    # A for loop that iterates n times.
+    for i in range(n):
+        # Creates the next number to be added by converting the next number into a string.
+        nextNumber = str(i + 1)
+        # Adds the next integer to the string.
+        stringOfIntegers = stringOfIntegers + nextNumber
+  # Prints the string of integers.  
+  print(stringOfIntegers)
