@@ -1,0 +1,37 @@
+if __name__ == '__main__':
+    # An integer that states the number of inputs that will be recieved.
+    N = int(input())
+    # A list of the seven possible commands for lists.
+    commands = {
+        "insert": lambda x, y, z: x.insert(y, z),
+        "print": lambda x: print(x),
+        "remove": lambda x, y: x.remove(y),
+        "append": lambda x, y: x.append(y),
+        "sort": lambda x: x.sort(),
+        "pop": lambda x: x.pop(),
+        "reverse": lambda x: x.reverse(),
+    }
+    # A list of the commands that will be taken.
+    requestedCommands = []
+    # Iterates the required amount of times.
+    for i in range(N):
+        # Takes each input, inserting it into a list "a".
+        a = input()
+        # Splits list "a" with lines in order to recieve the required numbers.
+        # Creates new list.
+        split_a = a.split(' ')
+        # Takes the first parameter in split_a as the command.
+        command = split_a[0]
+        # Tries the command, returning an index error if the command is not found.
+        try:
+            # Tries the command of each line assuming two arguments, using the following numbers as arguments.
+            # This one is defined for two arguments.
+            commands[command](requestedCommands, int(split_a[1]), int(split_a[2]))
+        # Triggers when the command does not have two arguments.
+        except IndexError:
+            # Tries the command with one argument.
+            try:
+                commands[command](requestedCommands, int(split_a[1]))
+            # Occurs when no arguments are found.
+            except IndexError:
+                commands[command](requestedCommands)
