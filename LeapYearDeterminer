@@ -1,0 +1,19 @@
+# Finds out whether or not the inputted year is a leap year or not.
+def is_leap(year):
+    # A boolean that assumes the leap year is false.
+    leap = False
+    # If the year ends in a four, the leap boolean is changed to true.
+    if year % 4 == 0:
+        leap = True
+        # If the leap year is a multiple of one hundred, the leap boolean is changed to false.
+        if year % 100 == 0:
+            leap = False
+            # If the year is a multiple of four hundred, the leap boolean is changed to true.
+            if year % 400 == 0:
+                leap = True
+    # Returns the boolean for the year
+    return leap
+# Accepts a year to be tested.
+year = int(input())
+# Prints whether the year is a leap year or not.
+print(is_leap(year))
